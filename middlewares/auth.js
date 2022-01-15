@@ -19,6 +19,7 @@ module.exports = async function (req, res, next) {
 
         next();
     } catch (err) {
-        res.status(500).send("Internal Server Error");
+        console.log(err)
+        res.status(500).send(err.message);
     }
 };

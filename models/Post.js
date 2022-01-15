@@ -33,5 +33,17 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
+    Post.associate = function (models) {
+        Post.belongsTo(models.User, {
+            foreignKey: "userId"
+        });
+        Post.hasMany(models.PostComment, {
+            foreignKey: "postId"
+        });
+        Post.hasMany(models.PostLike, {
+            foreignKey: "postId"
+        })
+    };
+
     return Post;
 };

@@ -1,7 +1,8 @@
 const db = require("../models");
 
 module.exports = {
-    getUserByEmail
+    getUserByEmail,
+    getUserById
 }
 
 function getUserByEmail(email){
@@ -11,5 +12,11 @@ function getUserByEmail(email){
             email: email
         }
     })
+
+}
+
+function getUserById(id){
+
+    return db.User.findByPk(id)
 
 }

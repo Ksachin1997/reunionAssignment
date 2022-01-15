@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const loginRoute = require("./controllers/user");
+const allRoute = require("./controllers/allRoutes")
 const app = express()
 const port = process.env.PORT
 app.use(cors());
@@ -9,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "200mb" }));
 
 app.use("/api/authenticate",loginRoute)
+
+app.use("/api",allRoute)
 
 app.listen(port, () => {
     console.log("App listening on port 4000")
